@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client';
+
+import Home from './pages/Home';
+
+const httpLink = createHttpLink({
+  uri: "graphql"
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ApolloProvider client={client}>
+      <div className="flex-column justify-flex-start min-100-vh">
+        <header className="bg-secondary mb-4 py-2 flex-row align-center">
+          <div className="container flex-row justify-space-between-lg justify-center align-center">
+            <h1>GraphQL Library!</h1>
+          </div>
+        </header>
+        <div className="container">
+          <Home />
+        </div>
+      </div>
+    </ApolloProvider>
+  )
+
 }
 
 export default App;
