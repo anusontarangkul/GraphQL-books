@@ -21,6 +21,6 @@ db.once('open', () => {
     console.log('DB is live');
     app.listen(PORT, () => {
         console.log(`App is running on ${PORT}`);
-        console.log(`The graphQL PLAYGROUND that is configured here http://loccalhost:${PORT}${server.graphqlPath}`)
+        console.log(`The graphQL PLAYGROUND that is configured here http://localhost:${PORT}${server.graphqlPath}`)
     })
 })
