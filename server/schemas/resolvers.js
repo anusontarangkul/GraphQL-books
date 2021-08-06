@@ -9,7 +9,7 @@ const resolvers = {
             return Book.findOne({ title })
         }
     },
-    Mutations: {
+    Mutation: {
         addBook: async (parent, args) => {
             const book = await Book.insertMany(args);
             return book;
