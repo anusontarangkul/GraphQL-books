@@ -12,7 +12,7 @@ const BookList = ({ books }) => {
                     <Card outline color="secondary" key={book._id}>
                         <CardHeader>Title: {book.title}</CardHeader>
                         <CardBody>
-                            <CardTitle>Authors name is {book.author}</CardTitle>
+                            <CardTitle>Author's name is {book.author}</CardTitle>
                             <CardText>Number of pages: {book.pages}</CardText>
 
                         </CardBody>
