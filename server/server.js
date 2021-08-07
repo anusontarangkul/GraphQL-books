@@ -6,13 +6,6 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 
-// const app = express();
-
-// const server = new ApolloServer({
-//     typeDefs,
-//     resolvers
-// });
-
 async function startApolloServer() {
     const server = new ApolloServer({
         typeDefs,
@@ -21,12 +14,6 @@ async function startApolloServer() {
     await server.start();
 
     const app = express();
-
-    // Additional middleware can be mounted at this point to run before Apollo.
-    // app.use('*', jwtCheck, requireAuth, checkScope);
-
-    // Mount Apollo middleware here.
-
 
     server.applyMiddleware({ app });
     app.use(express.urlencoded({ extended: false }));
